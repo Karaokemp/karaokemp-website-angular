@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { YoutubeComponent } from './youtube/youtube.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     YoutubeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
