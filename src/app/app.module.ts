@@ -10,7 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'youtube', component: YoutubeComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
