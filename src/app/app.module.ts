@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { PerformancesComponent } from './performances/performances.component';
+import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     StatisticsComponent,
     AboutComponent,
-    PerformancesComponent
+    PerformancesComponent,
+    NavBarItemComponent
   ],
   imports: [
     BrowserModule,
