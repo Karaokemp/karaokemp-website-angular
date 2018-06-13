@@ -10,17 +10,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { AboutComponent } from './about/about.component';
 import { PerformancesComponent } from './performances/performances.component';
 import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
-
-const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'youtube', component: YoutubeComponent },
-  { path: 'statistics', component: StatisticsComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'performances', component: PerformancesComponent },
-  { path: 'about', component: AboutComponent },
-  { path: '**', component: HomeComponent }
-
-];
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,10 +26,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    )
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
