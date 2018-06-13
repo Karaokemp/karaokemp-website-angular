@@ -6,8 +6,8 @@ const app = express();
   app.use(express.static('dist/website-frontend'));
 
   app.get('/*', function(req, res) {
-    res.sendFile('src/index.html',function(err) {
-    })
+    res.redirect(301, '/');
   });
+
   app.listen(PORT);
 console.log(`listenning on port ${PORT}`);
