@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { VideoSearchComponent } from './youtube/video-search/video-search.component';
 import { UploadListComponent } from './youtube/upload-list/upload-list.component';
 import { YoutubeRoutingModule } from './youtube/youtube-routing/youtube-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,10 @@ import { YoutubeRoutingModule } from './youtube/youtube-routing/youtube-routing.
     UploadListComponent
   ],
   imports: [
-    BrowserModule,
     YoutubeRoutingModule,
-    AppRoutingModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
