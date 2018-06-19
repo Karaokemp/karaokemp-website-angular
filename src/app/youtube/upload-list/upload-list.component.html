@@ -1,2 +1,4 @@
-<label>list:</label>
-<p>{{uploads}}</p>
+<h3><u>uploads</u></h3>
+<ol>
+<li *ngFor="let upload of uploads"><a href="{{upload.url}}" target="_blank">{{upload.title}}</a></li>
+            </ol>

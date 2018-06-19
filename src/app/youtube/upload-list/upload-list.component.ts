@@ -6,11 +6,14 @@ import {KaraokempService} from '../../karaokemp.service';
   styleUrls: ['./upload-list.component.css']
 })
 export class UploadListComponent implements OnInit {
-  uploads = [];
+  uploads;
 
   constructor(private backend: KaraokempService) { }
 
   ngOnInit() {
-    this.backend.getUploads().subscribe((data) => {});
+    this.backend.getUploads().subscribe((data) => {
+      this.uploads = data;
+      console.log('uploads: ' + this.uploads);
+    });
   }
 }
