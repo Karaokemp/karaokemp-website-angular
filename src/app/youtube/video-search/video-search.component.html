@@ -1,3 +1,7 @@
 <h1>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h1>
 <input [(ngModel)]="term" (keyup.enter)="search()"/>
-
+<hr>
+<h3>Search Results</h3>
+<ol>
+<li *ngFor='let result of searchResults'>{{result}}</li>    
+</ol>
