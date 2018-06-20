@@ -1,7 +1,19 @@
-<h1>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h1>
-<input [(ngModel)]="term" (keyup.enter)="search()"/>
-<hr>
-<h3>Search Results</h3>
-<ol>
-<app-video-search-result *ngFor='let result of searchResults' [video] ="result"></app-video-search-result>    
-</ol>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h2>
+            <input [(ngModel)]="term" (keyup.enter)="search()"/>
+            <hr>
+            <div className="embed-responsive embed-responsive-16by9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7iNbnineUCI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>        
+        </div>
+        <div class="col-lg-6">
+            <h3>Search Results</h3>
+            <ol>
+            <app-video-search-result *ngFor='let result of searchResults' [video] ="result"></app-video-search-result>    
+            </ol>        </div>
+    </div>
+</div>
+
+

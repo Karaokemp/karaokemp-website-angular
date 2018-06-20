@@ -9,6 +9,7 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
   styleUrls: ['./video-search.component.css']
 })
 export class VideoSearchComponent implements OnInit {
+  videoId = '7iNbnineUCI'; // offspring
   term = '';
   searchResults;
 
