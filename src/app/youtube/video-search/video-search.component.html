@@ -3,5 +3,5 @@
 <hr>
 <h3>Search Results</h3>
 <ol>
-<li *ngFor='let result of searchResults'>{{result}}</li>    
+<app-video-search-result *ngFor='let result of searchResults' [video] ="result"></app-video-search-result>    
 </ol>

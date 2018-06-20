@@ -18,10 +18,7 @@ export class VideoSearchComponent implements OnInit {
 
   search() {
     YTSearch({ key: API_KEY, term: this.term }, videos => {
-      this.searchResults = videos.map((video) => {
-        console.log(video);
-        return video.snippet.title;
-      });
+      this.searchResults = videos;
       });
     }
 
