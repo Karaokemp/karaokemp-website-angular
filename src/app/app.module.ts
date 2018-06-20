@@ -16,6 +16,7 @@ import { YoutubeRoutingModule } from './youtube/youtube-routing/youtube-routing.
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { VideoSearchResultComponent } from './youtube/video-search-result/video-search-result.component';
+import { VideoPlayerComponent } from './youtube/video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VideoSearchResultComponent } from './youtube/video-search-result/video-
     NavBarItemComponent,
     VideoSearchComponent,
     UploadListComponent,
-    VideoSearchResultComponent
+    VideoSearchResultComponent,
+    VideoPlayerComponent
   ],
   imports: [
     FormsModule,
