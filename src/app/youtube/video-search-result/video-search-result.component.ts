@@ -12,7 +12,7 @@ export class VideoSearchResultComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.video.id.videoId);
+    console.log(this.video);
   }
 
 }

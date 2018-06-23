@@ -4,7 +4,7 @@
             <h2>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h2>
             <input [(ngModel)]="term" (keyup.enter)="search()"/>
             <hr>
-            <app-video-player></app-video-player>
+            <app-video-player [video] = "selectedVideo"></app-video-player>
                     
         </div>
         <div class="col-lg-6">

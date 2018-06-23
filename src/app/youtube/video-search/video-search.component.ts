@@ -9,17 +9,20 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
   styleUrls: ['./video-search.component.css']
 })
 export class VideoSearchComponent implements OnInit {
-  videoId = '7iNbnineUCI'; // offspring
-  term = '';
-  searchResults;
+  term = 'offspring';
+  searchResults = [];
+  selectedVideo;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.search();
+  }
 
   search() {
     YTSearch({ key: API_KEY, term: this.term }, videos => {
       this.searchResults = videos;
+      this.selectedVideo = this.searchResults[0];
       });
     }
 
