@@ -20,7 +20,8 @@ export class VideoSearchComponent implements OnInit {
   }
 
   search() {
-    YTSearch({ key: API_KEY, term: this.term }, videos => {
+    const karaokeTerm = this.term + '+karaoke';
+    YTSearch({ key: API_KEY, term: karaokeTerm }, videos => {
       this.searchResults = videos;
       this.selectedVideo = this.searchResults[0];
       });
