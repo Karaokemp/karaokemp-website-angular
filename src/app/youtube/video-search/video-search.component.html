@@ -3,14 +3,16 @@
         <div class="col-lg-6">
             <h2>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h2>
             <input [(ngModel)]="term" (keyup.enter)="search()"/>
+            <button class = "btn btn-primary">Upload to Karaokemp!</button>
             <hr>
-            <app-video-player [video] = "selectedVideo"></app-video-player>
+            <app-video-presentor [video] = "selectedVideo"></app-video-presentor>
+
                     
         </div>
         <div class="col-lg-6">
             <h3>Search Results</h3>
-            <ul>
-            <app-video-search-result *ngFor='let result of searchResults' [video] ="result"></app-video-search-result>    
+            <ul class="list-unstyled">
+                <app-video-search-result *ngFor='let result of searchResults' [video] ="result"></app-video-search-result>    
             </ul>        </div>
     </div>
 </div>

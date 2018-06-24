@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { VideoSearchResultComponent } from './youtube/video-search-result/video-search-result.component';
 import { VideoPlayerComponent } from './youtube/video-player/video-player.component';
+import { VideoPresentorComponent } from './youtube/video-presentor/video-presentor.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VideoPlayerComponent } from './youtube/video-player/video-player.compon
     VideoSearchComponent,
     UploadListComponent,
     VideoSearchResultComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    VideoPresentorComponent
   ],
   imports: [
     FormsModule,
