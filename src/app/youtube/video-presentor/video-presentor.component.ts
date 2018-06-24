@@ -6,15 +6,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./video-presentor.component.css']
 })
 export class VideoPresentorComponent {
-  url = `https://www.youtube.com/watch?v=kr8wPkdHFA0`;
 
   @Input() video;
+  url;
 
   constructor() { }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnChanges() {
     console.log(this.video);
+    if (this.video) {
+      this.url = `https://www.youtube.com/watch?v=${this.video.id.videoId}`;
+    }
   }
 
 }
