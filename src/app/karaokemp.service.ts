@@ -14,5 +14,11 @@ export class KaraokempService {
   getUploads() {
     return this.http.get(`${KARAOKEMP_BACKEND_URL}uploads`);
   }
+
+  upload(song) {
+  return this.http.post(`${KARAOKEMP_BACKEND_URL}upload`, song);
+  }
+
+
 }
 

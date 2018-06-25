@@ -13,7 +13,6 @@ export class UploadListComponent implements OnInit {
   ngOnInit() {
     this.backend.getUploads().subscribe((data) => {
       this.uploads = data;
-      console.log('uploads: ' + this.uploads);
     });
   }
 }
