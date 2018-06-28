@@ -31,15 +31,19 @@ export class VideoSearchComponent implements OnInit {
       this.selectedVideo = this.searchResults[0];
       });
     }
+    onTermChange() {
+
+this.search();
+    }
 
     onVideoUpload() {
-      const payload = {title: 'Title', id: this.selectedVideo.id.VideoId};
-      // this.backend.upload(payload).subscribe((data) => {
-        // console.log(data);
+      const payload = {title: this.selectedVideo.snippet.title, id: this.selectedVideo.id.videoId};
+       this.backend.upload(payload).subscribe(() => {
         this.router.navigate(['youtube/uploads']);
-        console.log('Not uploading anything.... need to be written!');
 
-      // });
+       }, (error) => {
+         console.error(error);
+       });
 
     }
 
