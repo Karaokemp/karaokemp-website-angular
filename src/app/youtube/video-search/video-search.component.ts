@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 
 
+
+const SEARCH_INTERVAL = 3;
 const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
 
 @Component({
@@ -32,8 +34,7 @@ export class VideoSearchComponent implements OnInit {
       });
     }
     onTermChange() {
-
-this.search();
+      this.search();
     }
 
     onVideoUpload() {
