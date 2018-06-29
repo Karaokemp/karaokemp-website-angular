@@ -30,7 +30,6 @@
     "rxjs": "^6.0.0",
     "serve-favicon": "^2.5.0",
     "youtube-api-search": "0.0.5",
-    "youtube-dl": "^1.12.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
