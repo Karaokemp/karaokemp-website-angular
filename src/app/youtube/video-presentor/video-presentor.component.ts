@@ -9,6 +9,7 @@ export class VideoPresentorComponent {
 
   @Input() video;
   url;
+  title;
 
   constructor() { }
 
@@ -16,7 +17,8 @@ export class VideoPresentorComponent {
   ngOnChanges() {
     if (this.video) {
       this.url = `https://www.youtube.com/watch?v=${this.video.id.videoId}`;
+      this.title = this.video.snippet.title;
     }
-  }
 
+  }
 }

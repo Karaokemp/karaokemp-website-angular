@@ -1,2 +1,4 @@
 <p *ngIf="!video">Loading...</p>
+<h4 *ngIf="video" >{{title}}</h4>
+
 <a *ngIf="video" href="{{url}}" target="_blank"><img src ="{{video.snippet.thumbnails.high.url}}" width="500" height="300"/></a>

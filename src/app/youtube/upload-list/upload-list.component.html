@@ -4,3 +4,5 @@
 <ol>
 <li *ngFor="let upload of uploads"><a href="https://www.youtube.com/watch?v={{upload.id}}" target="_blank">{{upload.title}}</a></li>
             </ol>
+            <hr>
+            <button class="btn btn-warning"(click)="onDownload()">Download</button>

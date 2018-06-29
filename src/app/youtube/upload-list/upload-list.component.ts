@@ -15,4 +15,7 @@ export class UploadListComponent implements OnInit {
       this.uploads = data;
     });
   }
+  onDownload() {
+    console.log('Downloading...');
+  }
 }

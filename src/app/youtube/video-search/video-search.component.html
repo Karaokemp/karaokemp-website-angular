@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h2>Find songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h2>
-            <input [(ngModel)]="term" (keyup)="onTermChange()"/>
+            <h2>Find Karaoke Songs on<img style="height: 150px;" src= "https://www.youtube.com/yts/img/yt_1200-vfl4C3T0K.png"/></h2>
+            <input [(ngModel)]="term" (keyup)="onTermChange()" placeholder="Artist, Song Title"/>
             <button class = "btn btn-primary" (click) = "onVideoUpload()">Upload song to Karaokemp!</button>
             <hr>
             <app-video-presentor [video] = "selectedVideo"></app-video-presentor>
