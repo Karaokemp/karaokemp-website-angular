@@ -40,7 +40,7 @@ export class VideoSearchComponent implements OnInit {
     onVideoUpload() {
       const payload = {title: this.selectedVideo.snippet.title, id: this.selectedVideo.id.videoId};
        this.backend.upload(payload).subscribe(() => {
-        // this.router.navigate(['youtube/uploads']);
+       this.router.navigate(['youtube/uploads']);
 
        }, (error) => {
          console.error(error);
