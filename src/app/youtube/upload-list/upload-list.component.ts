@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {KaraokempService} from '../../karaokemp.service';
 
 @Component({
+  selector: 'app-upload-list',
   templateUrl: './upload-list.component.html',
   styleUrls: ['./upload-list.component.css']
 })
