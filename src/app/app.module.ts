@@ -18,6 +18,7 @@ import {FormsModule} from '@angular/forms';
 import { VideoSearchResultComponent } from './youtube/video-search-result/video-search-result.component';
 import { VideoPlayerComponent } from './youtube/video-player/video-player.component';
 import { VideoPresentorComponent } from './youtube/video-presentor/video-presentor.component';
+import { UploadListItemComponent } from './youtube/upload-list-item/upload-list-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VideoPresentorComponent } from './youtube/video-presentor/video-present
     UploadListComponent,
     VideoSearchResultComponent,
     VideoPlayerComponent,
-    VideoPresentorComponent
+    VideoPresentorComponent,
+    UploadListItemComponent
   ],
   imports: [
     FormsModule,

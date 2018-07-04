@@ -12,7 +12,7 @@ export class KaraokempService {
   constructor(private http: HttpClient) { }
 
   getUploads() {
-    return this.http.get(`${KARAOKEMP_BACKEND_URL}uploads`);
+    return this.http.get<Object[]>(`${KARAOKEMP_BACKEND_URL}uploads`);
   }
 
   upload(song) {

@@ -2,5 +2,5 @@
 <h4 *ngIf="!uploads">Loading...</h4>
 
 <ol>
-<li *ngFor="let upload of uploads"><a href="https://www.youtube.com/watch?v={{upload.id}}" target="_blank">{{upload.title}}</a></li>
-            </ol>
+<app-upload-list-item *ngFor="let upload of uploads" [upload]="upload"></app-upload-list-item>
+</ol>
