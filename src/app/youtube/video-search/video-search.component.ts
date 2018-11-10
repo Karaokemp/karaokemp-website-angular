@@ -27,15 +27,32 @@ export class VideoSearchComponent implements OnInit {
   }
 
   search() {
-    const karaokeTerm = this.term + '+karaoke';
+
+    const karaokeWord = this.defineKaraokeWord();
+
+    const karaokeTerm = `${this.term} +${karaokeWord}`;
     YTSearch({ key: API_KEY, term: karaokeTerm}, videos => {
       this.searchResults = videos;
       this.selectedVideo = this.searchResults[0];
       });
     }
+  defineKaraokeWord(): string {
+    var str = this.term[0];
+var position = str.search(/[\u0590-\u05FF]/);
+if(position >= 0){
+
+  return 'קריוקי';
+  }else{
+    return 'karaoke';
+  }
+
+}
     onTermChange() {
       this.search();
     }
+
+    private on
+
 
     onVideoUpload() {
       const payload = {title: this.selectedVideo.snippet.title, id: this.selectedVideo.id.videoId};
