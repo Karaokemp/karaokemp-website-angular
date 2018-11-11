@@ -37,17 +37,15 @@ export class VideoSearchComponent implements OnInit {
       });
     }
   defineKaraokeWord(): string {
-    var str = this.term[0];
-var position = str.search(/[\u0590-\u05FF]/);
-if(position >= 0){
 
-  return 'קריוקי';
-  }else{
-    return 'karaoke';
-  }
-
+    let karaokeWord = 'karaoke';
+    if(this.term.length > 0 && this.term[0].search(/[\u0590-\u05FF]/) >= 0){
+  karaokeWord = 'קריוקי';
 }
-    onTermChange() {
+return karaokeWord;
+}
+  
+onTermChange() {
       this.search();
     }
 
