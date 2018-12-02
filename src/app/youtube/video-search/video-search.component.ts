@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 
 
 
-const SEARCH_INTERVAL = 3;
 const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
 
 @Component({
@@ -26,15 +25,12 @@ export class VideoSearchComponent implements OnInit {
     this.search();
   }
 
-  search() {
-
-    const karaokeWord = this.defineKaraokeWord();
-
-    const karaokeTerm = `${this.term} +${karaokeWord}`;
-    YTSearch({ key: API_KEY, term: karaokeTerm}, videos => {
-      this.searchResults = videos;
-      this.selectedVideo = this.searchResults[0];
-      });
+  isYoutubeLink(line){
+        let youtubeUrl = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        if(line.match(youtubeUrl)){
+            return line.match(youtubeUrl)[1];
+        }
+        return false;
     }
   defineKaraokeWord(): string {
 
@@ -46,10 +42,44 @@ return karaokeWord;
 }
   
 onTermChange() {
+
+  if(this.isYoutubeLink(this.term)){
+
+      this.handleYoutubeLink(this.term);
+  }else{
       this.search();
+  }
     }
 
-    private on
+    handleYoutubeLink(youtubeUrl){
+      const id = this.parseId(youtubeUrl);
+    }
+
+    parseId(url){
+      var ID = '';
+      url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+      if(url[2] !== undefined) {
+        ID = url[2].split(/[^0-9a-z_\-]/i);
+        ID = ID[0];
+      }
+      else {
+        ID = url;
+      }
+        return ID.toString();
+    }
+    
+
+    search(){
+
+      const karaokeWord = this.defineKaraokeWord();
+    const karaokeTerm = `${this.term} +${karaokeWord}`;
+    YTSearch({ key: API_KEY, term: karaokeTerm}, videos => {
+      this.searchResults = videos;
+      this.selectedVideo = this.searchResults[0];
+      });
+
+    }
+
 
 
     onVideoUpload() {
