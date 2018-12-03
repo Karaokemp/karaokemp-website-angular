@@ -55,9 +55,16 @@ onTermChange() {
     }
 
     handleYoutubeLink(youtubeUrl){
-      const ID = this.parseId(youtubeUrl);
-      const TITLE = this.backend.getTitle(ID);
-    }
+      const videoId = this.parseId(youtubeUrl);
+      const payload = {id: videoId};
+      this.backend.upload(payload).subscribe(() => {
+      this.router.navigate(['youtube/uploads']);
+
+      }, (error) => {
+        console.error(error);
+      });
+
+      }
 
     parseId(url){
       var ID = '';

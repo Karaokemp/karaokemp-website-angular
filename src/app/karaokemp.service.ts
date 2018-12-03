@@ -8,14 +8,6 @@ const KARAOKEMP_BACKEND_URL = 'https://karaokemp-backend.herokuapp.com/';
   providedIn: 'root'
 })
 export class KaraokempService {
-  getTitle(videoId: string){
-    const params = new HttpParams().set('id', videoId)
-  
- 
-    return this.http.get(`${KARAOKEMP_BACKEND_URL}title`,{params}).toPromise();
-    
-
-  }
   
   constructor(private http: HttpClient) { }
 
