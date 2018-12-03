@@ -57,8 +57,14 @@ onTermChange() {
     handleYoutubeLink(youtubeUrl){
       const videoId = this.parseId(youtubeUrl);
       const payload = {id: videoId};
-      this.backend.upload(payload).subscribe(() => {
-      this.router.navigate(['youtube/uploads']);
+      this.backend.upload(payload).subscribe((response) => {
+        let title = response['title'];
+        if(title){
+          this.router.navigate(['youtube/uploads']);
+
+        }else{
+          console.log(`Could not find the song title for link ${youtubeUrl}`);
+        }
 
       }, (error) => {
         console.error(error);
