@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams} from '@angular/common/http';
 const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
 const KARAOKEMP_BACKEND_URL = 'https://karaokemp-backend.herokuapp.com/';
  // const KARAOKEMP_BACKEND_URL = 'http://localhost:3000/';
@@ -8,7 +8,15 @@ const KARAOKEMP_BACKEND_URL = 'https://karaokemp-backend.herokuapp.com/';
   providedIn: 'root'
 })
 export class KaraokempService {
+  getTitle(videoId: string){
+    const params = new HttpParams().set('id', videoId)
+  
+ 
+    return this.http.get(`${KARAOKEMP_BACKEND_URL}title`,{params}).toPromise();
+    
 
+  }
+  
   constructor(private http: HttpClient) { }
 
   getUploads() {
@@ -18,6 +26,7 @@ export class KaraokempService {
   upload(song) {
   return this.http.post(`${KARAOKEMP_BACKEND_URL}upload`, song);
   }
+
 
 
 }

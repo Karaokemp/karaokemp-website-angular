@@ -22,6 +22,9 @@ export class VideoSearchComponent implements OnInit {
   ngOnInit() {
     this.onVideoUpload.bind(this);
     this.onVideoSelect.bind(this);
+    this.onTermChange.bind(this);
+    this.isYoutubeLink.bind(this);
+    this.handleYoutubeLink.bind(this);
     this.search();
   }
 
@@ -52,7 +55,8 @@ onTermChange() {
     }
 
     handleYoutubeLink(youtubeUrl){
-      const id = this.parseId(youtubeUrl);
+      const ID = this.parseId(youtubeUrl);
+      const TITLE = this.backend.getTitle(ID);
     }
 
     parseId(url){
