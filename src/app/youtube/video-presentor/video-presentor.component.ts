@@ -16,8 +16,8 @@ export class VideoPresentorComponent {
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnChanges() {
     if (this.video) {
-      this.url = `https://www.youtube.com/watch?v=${this.video.id.videoId}`;
-      this.title = this.video.snippet.title;
+      this.url = `https://www.youtube.com/watch?v=${this.video.id}`;
+      this.title = this.video.title;
     }
 
   }

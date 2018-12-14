@@ -23,7 +23,6 @@ export class VideoSearchComponent implements OnInit {
     this.onLinkChange.bind(this);
     this.isYoutubeLink.bind(this);
     this.getSelectedVideo.bind(this);
-    
     this.getSelectedVideo();
   }
 
@@ -37,12 +36,15 @@ export class VideoSearchComponent implements OnInit {
   
 onLinkChange() {
 
-  this.getSelectedVideo();
+  this.selectedVideo = this.getSelectedVideo();
 
     }
 
     getSelectedVideo(){
-      console.log('finding selected video');
+      let videoId = this.parseId(this.link);
+      this.backend.getVideo(videoId).subscribe(video=>{
+        this.selectedVideo = video;
+      });
     }
 
 
