@@ -12,7 +12,7 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
   styleUrls: ['./video-search.component.css']
 })
 export class VideoSearchComponent implements OnInit {
-  link = 'https://www.youtube.com/watch?v=AUjmpbd-U2Q'; // nothing but mammals
+  link = '';
   selectedVideo;
 
   constructor(private backend: KaraokempService, private router: Router) { }
@@ -23,7 +23,6 @@ export class VideoSearchComponent implements OnInit {
     this.onLinkChange.bind(this);
     this.isYoutubeLink.bind(this);
     this.getSelectedVideo.bind(this);
-    this.getSelectedVideo();
   }
 
   isYoutubeLink(line){
