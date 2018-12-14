@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import YTSearch from 'youtube-api-search';
 import { KaraokempService } from '../../karaokemp.service';
 import { Router } from '@angular/router';
 
@@ -13,8 +12,7 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
   styleUrls: ['./video-search.component.css']
 })
 export class VideoSearchComponent implements OnInit {
-  term = '';
-  searchResults = [];
+  link = 'https://www.youtube.com/watch?v=AUjmpbd-U2Q'; // nothing but mammals
   selectedVideo;
 
   constructor(private backend: KaraokempService, private router: Router) { }
@@ -22,10 +20,11 @@ export class VideoSearchComponent implements OnInit {
   ngOnInit() {
     this.onVideoUpload.bind(this);
     this.onVideoSelect.bind(this);
-    this.onTermChange.bind(this);
+    this.onLinkChange.bind(this);
     this.isYoutubeLink.bind(this);
-    this.handleYoutubeLink.bind(this);
-    this.search();
+    this.getSelectedVideo.bind(this);
+    
+    this.getSelectedVideo();
   }
 
   isYoutubeLink(line){
@@ -35,42 +34,17 @@ export class VideoSearchComponent implements OnInit {
         }
         return false;
     }
-  defineKaraokeWord(): string {
-
-    let karaokeWord = 'karaoke';
-    if(this.term.length > 0 && this.term[0].search(/[\u0590-\u05FF]/) >= 0){
-  karaokeWord = 'קריוקי';
-}
-return karaokeWord;
-}
   
-onTermChange() {
+onLinkChange() {
 
-  if(this.isYoutubeLink(this.term)){
+  this.getSelectedVideo();
 
-      this.handleYoutubeLink(this.term);
-  }else{
-      this.search();
-  }
     }
 
-    handleYoutubeLink(youtubeUrl){
-      const videoId = this.parseId(youtubeUrl);
-      const payload = {id: videoId};
-      this.backend.upload(payload).subscribe((response) => {
-        let title = response['title'];
-        if(title){
-          this.router.navigate(['youtube/uploads']);
+    getSelectedVideo(){
+      console.log('finding selected video');
+    }
 
-        }else{
-          console.log(`Could not find the song title for link ${youtubeUrl}`);
-        }
-
-      }, (error) => {
-        console.error(error);
-      });
-
-      }
 
     parseId(url){
       var ID = '';
@@ -85,17 +59,6 @@ onTermChange() {
         return ID.toString();
     }
     
-
-    search(){
-
-      const karaokeWord = this.defineKaraokeWord();
-    const karaokeTerm = `${this.term} +${karaokeWord}`;
-    YTSearch({ key: API_KEY, term: karaokeTerm}, videos => {
-      this.searchResults = videos;
-      this.selectedVideo = this.searchResults[0];
-      });
-
-    }
 
 
 

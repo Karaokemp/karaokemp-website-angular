@@ -15,7 +15,6 @@ import { UploadListComponent } from './youtube/upload-list/upload-list.component
 import { YoutubeRoutingModule } from './youtube/youtube-routing/youtube-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { VideoSearchResultComponent } from './youtube/video-search-result/video-search-result.component';
 import { VideoPlayerComponent } from './youtube/video-player/video-player.component';
 import { VideoPresentorComponent } from './youtube/video-presentor/video-presentor.component';
 import { UploadListItemComponent } from './youtube/upload-list-item/upload-list-item.component';
@@ -33,7 +32,6 @@ import { UploadListItemComponent } from './youtube/upload-list-item/upload-list-
     NavBarItemComponent,
     VideoSearchComponent,
     UploadListComponent,
-    VideoSearchResultComponent,
     VideoPlayerComponent,
     VideoPresentorComponent,
     UploadListItemComponent
