@@ -64,7 +64,7 @@ onLinkChange() {
 
 
     onVideoUpload() {
-      const payload = {title: this.selectedVideo.snippet.title, id: this.selectedVideo.id.videoId};
+      const payload = {title: this.selectedVideo.title, id: this.selectedVideo.id};
        this.backend.upload(payload).subscribe(() => {
        this.router.navigate(['youtube/uploads']);
 
