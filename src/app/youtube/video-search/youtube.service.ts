@@ -18,31 +18,38 @@ result = 3; //how many videos you want to retrieve
   constructor(private http: HttpClient) { }
 
   getSearchResults(term:string){
-
+  
     console.log(term);
 
-    const options = {
-      q: term,
-      part:'snippet',
-      type:'video'
-    }
+    return new Promise((reject,resolve)=>{
 
-    searchYoutube(API_KEY,options).then((result)=>{
+      const options = {
+        q: term,
+        part:'snippet',
+        type:'video'
+      }
 
-      let videos = result.items
-      let items = videos.map((video)=>{
-        return {
-          id: video.id.videoId,
-          title: video.snippet.title,
-          img: video.snippet.thumbnails.default.url
-        };
-        
+      searchYoutube(API_KEY,options).then((result)=>{
+
+        let videos = result.items.map((video)=>{
+          return {
+            id: video.id.videoId,
+            title: video.snippet.title,
+            img: video.snippet.thumbnails.default.url
+          };
+          
+        });
+
+        resolve(videos);
+    
+  
       });
 
-      console.log(items[0]);
-
-
     });
+
+    
+
+    
 
 
 

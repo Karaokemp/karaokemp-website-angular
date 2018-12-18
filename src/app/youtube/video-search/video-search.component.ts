@@ -37,8 +37,12 @@ export class VideoSearchComponent implements OnInit {
   
 onTermChange() {
 
-  this.youtube.getSearchResults(this.term);
+  this.youtube.getSearchResults(this.term).then((results)=>{
+    console.log(results);
 
+  }).catch((err)=>{
+    console.log(err);
+  });
 
 
     }
