@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { KaraokempService } from '../../karaokemp.service';
+import { YoutubeService} from './youtube.service';
 import { Router } from '@angular/router';
+import { KaraokempService } from './karaokemp.service';
+
+
 
 
 
@@ -12,17 +15,16 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
   styleUrls: ['./video-search.component.css']
 })
 export class VideoSearchComponent implements OnInit {
-  link = '';
+  term = '';
   selectedVideo;
 
-  constructor(private backend: KaraokempService, private router: Router) { }
+  constructor(private backend: KaraokempService, private youtube: YoutubeService,private router: Router) { }
 
   ngOnInit() {
     this.onVideoUpload.bind(this);
     this.onVideoSelect.bind(this);
-    this.onLinkChange.bind(this);
+    this.onTermChange.bind(this);
     this.isYoutubeLink.bind(this);
-    this.getSelectedVideo.bind(this);
   }
 
   isYoutubeLink(line){
@@ -33,17 +35,12 @@ export class VideoSearchComponent implements OnInit {
         return false;
     }
   
-onLinkChange() {
+onTermChange() {
 
-  this.selectedVideo = this.getSelectedVideo();
+  this.youtube.getSearchResults(this.term);
 
-    }
 
-    getSelectedVideo(){
-      let videoId = this.parseId(this.link);
-      this.backend.getVideo(videoId).subscribe(video=>{
-        this.selectedVideo = video;
-      });
+
     }
 
 

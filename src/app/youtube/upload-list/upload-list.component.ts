@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {KaraokempService} from '../../karaokemp.service';
+import {KaraokempService} from '../video-search/karaokemp.service';
 
 @Component({
   selector: 'app-upload-list',

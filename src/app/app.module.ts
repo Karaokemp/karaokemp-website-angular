@@ -34,7 +34,7 @@ import { UploadListItemComponent } from './youtube/upload-list-item/upload-list-
     UploadListComponent,
     VideoPlayerComponent,
     VideoPresentorComponent,
-    UploadListItemComponent
+    UploadListItemComponent,
   ],
   imports: [
     FormsModule,
