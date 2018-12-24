@@ -12,16 +12,13 @@ const API_KEY = 'AIzaSyAGDd4JexGEldbkRsq-dneYSjEHj8DQY_c';
 })
 export class YoutubeService {
 
-chanId = 'yourchannelid';
-result = 3; //how many videos you want to retrieve
-
   constructor(private http: HttpClient) { }
 
   getSearchResults(term:string){
   
-    console.log(term);
 
     return new Promise((reject,resolve)=>{
+
 
       const options = {
         q: term,
@@ -47,21 +44,35 @@ result = 3; //how many videos you want to retrieve
 
     });
 
-    
+  }
 
-    
+    getKaraokeSearchResults(term:string){
 
+      let karaokeTerm = `"${term}"+${this.defineKaraokeWord(term)}`;
 
+      console.log(karaokeTerm);
 
- 
-     
+      return this.getSearchResults(karaokeTerm);
 
+    }
+
+    defineKaraokeWord(term:string): string {
+      var str = term[0];
+  var position = str.search(/[\u0590-\u05FF]/);
+  if(position >= 0){
   
+    return 'קריוקי';
+    }else{
+      return 'karaoke';
+    }
+  
+  }
 
 
 
 
-  } 
+
+    
 
 }
 
