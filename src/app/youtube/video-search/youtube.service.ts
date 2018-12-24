@@ -50,7 +50,6 @@ export class YoutubeService {
 
       let karaokeTerm = `"${term}"+${this.defineKaraokeWord(term)}`;
 
-      console.log(karaokeTerm);
 
       return this.getSearchResults(karaokeTerm);
 
